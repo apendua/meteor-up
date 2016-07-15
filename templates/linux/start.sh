@@ -47,7 +47,7 @@ fi
 <% if(typeof sslConfig === "object")  { %>
   # We don't need to fail the deployment because of a docker hub downtime
   set +e
-  docker pull meteorhacks/mup-frontend-server:latest
+  docker pull apendua/mup-frontend-server:latest
   set -e
   docker run \
     -d \
@@ -57,5 +57,5 @@ fi
     --link=$APPNAME:backend \
     --publish=<%= sslConfig.port %>:443 \
     --name=$APPNAME-frontend \
-    meteorhacks/mup-frontend-server /start.sh
+    apendua/mup-frontend-server /start.sh
 <% } %>
